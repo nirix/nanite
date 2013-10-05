@@ -49,6 +49,7 @@ function post($route, $function)
 class Nanite
 {
     private static $requestUri;
+    public static $routeProccessed = false;
 
     /**
      * Routes a get request and executes the routed function.
@@ -95,6 +96,10 @@ class Nanite
      */
     private static function processRoute($route, $function)
     {
+        if (static::$routeProccessed) {
+            return;
+        }
+
         // Check if the request is empty
         if (static::requestUri() == '') {
             static::$requestUri = '/';
@@ -104,6 +109,7 @@ class Nanite
         if (preg_match("#^{$route}$#", static::requestUri(), $matches)) {
             unset($matches[0]);
             call_user_func_array($function, $matches);
+            static::$routeProccessed = true;
         }
     }
 

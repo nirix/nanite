@@ -48,7 +48,7 @@ function post($route, $function)
  */
 class Nanite
 {
-    private static $request_uri;
+    private static $requestUri;
 
     /**
      * Routes a get request and executes the routed function.
@@ -60,7 +60,7 @@ class Nanite
     {
         // Check if the request method type
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'get') {
-            static::_process_route($route, $function);
+            static::processRoute($route, $function);
         }
     }
 
@@ -74,16 +74,16 @@ class Nanite
     {
         // Check the request method type
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-            static::_process_route($route, $function);
+            static::processRoute($route, $function);
         }
     }
 
     /**
-     * Determines the base URL of the app.
+     * Determines the base URI of the app.
      *
      * @return string
      */
-    public static function base_uri($segments = null)
+    public static function baseUri($segments = null)
     {
         return str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']) . ($segments ? trim($segments, '/') : '');
     }
@@ -93,15 +93,15 @@ class Nanite
      *
      * @access private
      */
-    private static function _process_route($route, $function)
+    private static function processRoute($route, $function)
     {
         // Check if the request is empty
-        if (static::_request_uri() == '') {
-            static::$request_uri = '/';
+        if (static::requestUri() == '') {
+            static::$requestUri = '/';
         }
 
         // Match the route
-        if (preg_match("#^{$route}$#", static::_request_uri(), $matches)) {
+        if (preg_match("#^{$route}$#", static::requestUri(), $matches)) {
             unset($matches[0]);
             call_user_func_array($function, $matches);
         }
@@ -113,49 +113,49 @@ class Nanite
      * @return string
      * @access private
      */
-    private static function _request_uri()
+    public static function requestUri()
     {
         // Check ff this is the first time getting the request uri
-        if (static::$request_uri === null) {
+        if (static::$requestUri === null) {
             // Check if there is a PATH_INFO variable
             // Note: some servers seem to have trouble with getenv()
             $path = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : @getenv('PATH_INFO');
             if (trim($path, '/') != '' && $path != "/index.php") {
-                return static::$request_uri = $path;
+                return static::$requestUri = $path;
             }
 
             // Check if ORIG_PATH_INFO exists
             $path = str_replace($_SERVER['SCRIPT_NAME'], '', (isset($_SERVER['ORIG_PATH_INFO'])) ? $_SERVER['ORIG_PATH_INFO'] : @getenv('ORIG_PATH_INFO'));
             if (trim($path, '/') != '' && $path != "/index.php") {
-                return static::$request_uri = $path;
+                return static::$requestUri = $path;
             }
 
             // Check for ?uri=x/y/z
             if (isset($_REQUEST['url'])) {
-                return static::$request_uri = $_REQUEST['url'];
+                return static::$requestUri = $_REQUEST['url'];
             }
 
             // Check the _GET variable
             if (is_array($_GET) && count($_GET) == 1 && trim(key($_GET), '/') != '') {
-                return static::$request_uri = key($_GET);
+                return static::$requestUri = key($_GET);
             }
 
             // Check for QUERY_STRING
             $path = (isset($_SERVER['QUERY_STRING'])) ? $_SERVER['QUERY_STRING'] : @getenv('QUERY_STRING');
             if (trim($path, '/') != '') {
-                return static::$request_uri = $path;
+                return static::$requestUri = $path;
             }
 
-            // Check for REQUEST_URI
+            // Check for requestUri
             $path = str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['REQUEST_URI']);
             if (trim($path, '/') != '' && $path != "/index.php") {
-                return static::$request_uri = str_replace(str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']), '', $path);
+                return static::$requestUri = str_replace(str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']), '', $path);
             }
 
             // I dont know what else to try, screw it..
-            return static::$request_uri = '';
+            return static::$requestUri = '';
         }
 
-        return static::$request_uri;
+        return static::$requestUri;
     }
 }

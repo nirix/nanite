@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="content container">
+	<div class="row">
+		<section class="col span-6">
+			<h2>What is it?</h2>
+			Nanite is a small "framework" to easily handle <code>GET</code> and <code>POST</code> requests with
+			<em>just about</em> any URL format you can think of.
+		</section>
+
+		<section class="col span-6">
+			<h2>What's it do?</h2>
+			<ul>
+				<li>Easily handle GET/POST requests.</li>
+				<li>Pretty/clean URLs</li>
+				<li>Regular expression URL matching</li>
+				<li>Contained in a single file</li>
+			</ul>
+		</section>
+	</div>
+
+	<section>
+		<h2>Show me</h2>
+<pre>
+require 'nanite.php';
+
+// Use / for the main/index page.
+get('/', function(){
+    echo "Front page";
+});
+
+// All routes start with /
+get('/about', function(){
+    echo "About page";
+});
+
+// Regex enabled, groups get passed to the function.
+get('/projects/([a-zA-Z0-9\-_]+)', function($project){
+    echo "Project page for {$project}";
+});
+
+// Handle a POST request
+post('/contact', function(){
+    // Handle submitted contact form.
+});
+</pre>
+	</section>
+</div>

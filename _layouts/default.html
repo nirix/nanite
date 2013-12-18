@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ site.baseurl}}/assets/draper.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ site.baseurl}}/assets/nanite.css" type="text/css" media="screen" />
+    <link href="{{ site.baseurl}}/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="brand"><a href="{{ site.baseurl}}/">Nanite</a></div>
+      </div>
+    </header>
+    <main id="page">
+      {{ content }}
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <a href="https://github.com/nirix/nanite/">Nanite</a> &copy; <a href="https://github.com/nirix/">Nirix</a>
+      </div>
+    </footer>
+  </body>
+</html>

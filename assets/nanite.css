@@ -1,0 +1,8 @@
+#header .brand {
+  margin-top: 10px;
+}
+  #header .brand a {
+    font-size: 3.5em;
+    color: #000;
+    font-weight: bold;
+  }

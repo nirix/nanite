@@ -12,7 +12,8 @@ Example
 There are two functions for requests, `get` for GET requests and `post` for POST requests.
 
     <?php
-    require 'nanite.php';
+    require 'src/Nanite.php';
+    require 'src/functions.php';
 
     // Use / for the main/index page.
     get('/', function(){

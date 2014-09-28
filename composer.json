@@ -1,0 +1,20 @@
+{
+    "name": "nirix/nanite",
+    "description": "PHP Micro-framework",
+    "keywords": ["micro", "framework"],
+    "homepage": "http://nirix.github.io/nanite/",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Jack Polgar",
+            "email": "jack@polgar.id.au"
+        }
+    ],
+    "autoload": {
+        "classmap": ["src/Nanite.php"],
+        "files": ["src/functions.php"]
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}

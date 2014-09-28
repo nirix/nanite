@@ -1,7 +1,7 @@
 <?php
 /*!
  * Nanite
- * Copyright (C) 2012-2013 Jack P.
+ * Copyright (C) 2012-2014 Jack P.
  * https://github.com/nirix
  *
  * Nanite is free software: you can redistribute it and/or modify
@@ -18,31 +18,9 @@
  */
 
 /**
- * Shortcut to the Nanite::get() method.
- *
- * @param string $route
- * @param function $function
- */
-function get($route, $function)
-{
-    Nanite::get($route, $function);
-}
-
-/**
- * Shortcut to the Nanite::post() method.
- *
- * @param string $route
- * @param function $function
- */
-function post($route, $function)
-{
-    Nanite::post($route, $function);
-}
-
-/**
  * Nanite is a tiny PHP router.
  *
- * @copyright Copyright (c) 2012 Jack P.
+ * @copyright Copyright (c) 2014 Jack P.
  * @license GNU Lesser General Public License
  * @version 3.0
  */

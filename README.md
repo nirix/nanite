@@ -35,6 +35,13 @@ There are two functions for requests, `get` for GET requests and `post` for POST
         // Handle submitted contact form.
     });
 
+Apache `mod_rewrite`
+--------------------
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 
 License
 -------

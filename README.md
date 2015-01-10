@@ -46,7 +46,9 @@ Apache `mod_rewrite`
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+    # or
+    # RewriteRule ^(.*)$ index.php?url=/$1 [L,QSA]
 
 License
 -------

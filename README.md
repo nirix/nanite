@@ -35,6 +35,11 @@ There are two functions for requests, `get` for GET requests and `post` for POST
         // Handle submitted contact form.
     });
 
+    // Checking if a route has been matched
+    if (!Nanite::$routeProccessed) {
+        // 404 page here
+    }
+
 Apache `mod_rewrite`
 --------------------
 

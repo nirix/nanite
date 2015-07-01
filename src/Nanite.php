@@ -58,6 +58,20 @@ class Nanite
     }
 
     /**
+     * Routes a delete request and executes the routed function.
+     *
+     * @param string $route
+     * @param function $function
+     */
+    public static function delete($route, $function)
+    {
+        // Check the request method type
+        if (strtolower($_SERVER['REQUEST_METHOD']) == 'delete') {
+            static::processRoute($route, $function);
+        }
+    }
+
+    /**
      * Determines the base URI of the app.
      *
      * @return string

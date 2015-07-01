@@ -38,3 +38,14 @@ function post($route, $function)
 {
     Nanite::post($route, $function);
 }
+
+/**
+ * Shortcut to the Nanite::delete() method.
+ *
+ * @param string $route
+ * @param function $function
+ */
+function delete($route, $function)
+{
+    Nanite::delete($route, $function);
+}

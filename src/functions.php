@@ -1,7 +1,7 @@
 <?php
 /*!
  * Nanite
- * Copyright (C) 2012-2014 Jack P.
+ * Copyright (C) 2012-2016 Jack P.
  * https://github.com/nirix
  *
  * Nanite is free software: you can redistribute it and/or modify

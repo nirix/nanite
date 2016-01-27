@@ -40,6 +40,28 @@ function post($route, $function)
 }
 
 /**
+ * Shortcut to the Nanite::put() method.
+ *
+ * @param string $route
+ * @param function $function
+ */
+function put($route, $function)
+{
+    Nanite::put($route, $function);
+}
+
+/**
+ * Shortcut to the Nanite::patch() method.
+ *
+ * @param string $route
+ * @param function $function
+ */
+function patch($route, $function)
+{
+    Nanite::patch($route, $function);
+}
+
+/**
  * Shortcut to the Nanite::delete() method.
  *
  * @param string $route

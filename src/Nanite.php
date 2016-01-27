@@ -58,6 +58,34 @@ class Nanite
     }
 
     /**
+     * Routes a put request and executes the routed function.
+     *
+     * @param string $route
+     * @param function $function
+     */
+    public static function put($route, $function)
+    {
+        // Check the request method type
+        if (strtolower($_SERVER['REQUEST_METHOD']) == 'put') {
+            static::processRoute($route, $function);
+        }
+    }
+
+    /**
+     * Routes a patch request and executes the routed function.
+     *
+     * @param string $route
+     * @param function $function
+     */
+    public static function patch($route, $function)
+    {
+        // Check the request method type
+        if (strtolower($_SERVER['REQUEST_METHOD']) == 'patch') {
+            static::processRoute($route, $function);
+        }
+    }
+
+    /**
      * Routes a delete request and executes the routed function.
      *
      * @param string $route

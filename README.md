@@ -9,7 +9,7 @@ Requirements
 Example
 -------
 
-There are two functions for requests, `get` for GET requests and `post` for POST requests.
+Nanite supports `GET`, `POST`, `PUT`, `PATCH` and `DELETE` requests.
 
     <?php
     require 'src/Nanite.php';

@@ -21,7 +21,7 @@
  * Shortcut to the Nanite::get() method.
  *
  * @param string $route
- * @param function $function
+ * @param mixed Callback $function
  */
 function get($route, $function)
 {
@@ -32,7 +32,7 @@ function get($route, $function)
  * Shortcut to the Nanite::post() method.
  *
  * @param string $route
- * @param function $function
+ * @param mixed Callback $function
  */
 function post($route, $function)
 {
@@ -43,7 +43,7 @@ function post($route, $function)
  * Shortcut to the Nanite::put() method.
  *
  * @param string $route
- * @param function $function
+ * @param mixed Callback $function
  */
 function put($route, $function)
 {
@@ -54,7 +54,7 @@ function put($route, $function)
  * Shortcut to the Nanite::patch() method.
  *
  * @param string $route
- * @param function $function
+ * @param mixed Callback $function
  */
 function patch($route, $function)
 {
@@ -65,7 +65,7 @@ function patch($route, $function)
  * Shortcut to the Nanite::delete() method.
  *
  * @param string $route
- * @param function $function
+ * @param mixed Callback $function
  */
 function delete($route, $function)
 {

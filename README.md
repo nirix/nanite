@@ -49,6 +49,14 @@ Apache `mod_rewrite`
     RewriteRule ^(.*)$ index.php/$1 [L,QSA]
     # or
     # RewriteRule ^(.*)$ index.php?url=/$1 [L,QSA]
+    
+Lighttpd `mod_rewrite`
+----------------------
+
+    server.modules += ( "mod_rewrite" )
+    url.rewrite-if-not-file += (
+        "^/(.*)" => "/index.php?url=/$1"
+    )
 
 License
 -------

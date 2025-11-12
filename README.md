@@ -4,7 +4,7 @@ Nanite
 Requirements
 ------------
 
-- PHP 5.3+
+- PHP 8.3+
 
 Example
 -------
@@ -47,15 +47,13 @@ Apache `mod_rewrite`
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php/$1 [L,QSA]
-    # or
-    # RewriteRule ^(.*)$ index.php?url=/$1 [L,QSA]
-    
+
 Lighttpd `mod_rewrite`
 ----------------------
 
     server.modules += ( "mod_rewrite" )
     url.rewrite-if-not-file += (
-        "^/(.*)" => "/index.php?url=/$1"
+        "^/(.*)" => "/index.php?/$1"
     )
 
 License

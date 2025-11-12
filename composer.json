@@ -15,6 +15,6 @@
         "files": ["src/functions.php"]
     },
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=8.3.0"
     }
 }
